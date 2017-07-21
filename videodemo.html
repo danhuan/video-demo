@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>video 标签兼容ie,火狐等</title>
+    <script src="https://cdn.bootcss.com/html5media/1.1.8/html5media.js"></script>
+    <style>
+        .video-wrap{
+            background-color: #ddd;
+            width: 100%;
+            text-align: center;
+        }
+        .video-box{
+            width: 80%;
+            margin: 0px auto;
+        }
+        /*通过样式设置video宽度高度，不可以直接在<video>标签中设置非像素宽高，否则IE8不会显示视频*/
+        .video-box video{
+            width:100%;
+            height:500px\0;/* ie 8/9/10/Opera - for ie8/ie10/Opera */
+            *height：500px;/* ie 6/7 - for ie7 */
+            _height:500px; /* ie 6 - for ie6 */
+            object-fit: fill
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="video-wrap">
+    <div class="video-box">
+        <video controls autoplay="true" loop="true" preload="auto">
+            <source src="movie/movie.mp4" type="video/mp4">
+            <source src="movie/movie.ogv" type="video/ogg">
+            <p style="padding: 50px;color:#fff;text-align: center">您的浏览器不支持 HTML5 video 标签。</p>
+        </video>
+    </div>
+</div>
+
+</body>
+</html>
